@@ -38,7 +38,6 @@ router.get('/', async (req, res) => {
     });
 
     if (!cartWithItems) {
-      // This case should ideally not be hit due to getOrCreateCart middleware
       return res.status(404).json({ success: false, message: 'Cart not found' });
     }
 

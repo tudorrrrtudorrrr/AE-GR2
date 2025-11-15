@@ -17,7 +17,7 @@ const ShoppingCartItem = sequelize.define('ShoppingCartItem', {
   },
 }, {
   tableName: 'shopping_cart_items',
-  timestamps: false, // Usually not needed for join tables
+  timestamps: false, 
 });
 
 module.exports = ShoppingCartItem;

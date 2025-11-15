@@ -77,8 +77,6 @@ const cartSlice = createSlice({
         state.status = 'failed';
         state.error = action.payload;
       })
-      // Optimistic updates for a smoother UX can be added here,
-      // but for now, we rely on refetching the cart.
       .addCase(addToCart.rejected, (state, action) => {
         state.error = action.payload;
       })
@@ -97,7 +95,6 @@ export const selectCartError = (state) => state.cart.error;
 
 export const selectCartTotal = (state) => {
   return state.cart.items.reduce((total, item) => {
-    // The quantity is in the 'ShoppingCartItem' join table object
     return total + item.price * item.ShoppingCartItem.quantity;
   }, 0);
 };
